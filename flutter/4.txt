@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+void main() {
+ runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+ @override
+ Widget build(BuildContext context) {
+ return MaterialApp(
+ theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
+ debugShowCheckedModeBanner: false,
+ home: Scaffold(
+ // Outer white container with padding
+ body: Container(
+ color: Colors.black,
+ padding: EdgeInsets.symmetric(horizontal: 40, vertical: 80),
+ // Inner yellow container
+ child: Container(
+ // pass double.infinity to prevent shrinking of the painter area to 0.
+ width: double.infinity,
+ height: double.infinity,
+ color: Color.fromARGB(255, 126, 125, 125),
+ child: CustomPaint(painter: FaceOutlinePainter()),
+ ),
+ ),
+ ),
+ );
+ }
+}
+class FaceOutlinePainter extends CustomPainter {
+ @override
+ void paint(Canvas canvas, Size size) {
+ final paint = Paint();
+ paint.style = PaintingStyle.stroke;
+ paint.strokeWidth = 4.0;
+ paint.color = Color.fromARGB(255, 244, 67, 54);
+ canvas.drawOval(
+ Rect.fromLTWH(size.width - 120, 40, 100, 100),
+ paint,
+ );
+ canvas.drawRect(
+ Rect.fromLTWH(20, 40, 100, 100),
+ paint,
+ );
+ final mouth = Path();
+ mouth.moveTo(size.width * 0.8, size.height * 0.6);
+ mouth.arcToPoint(
+ Offset(size.width * 0.2, size.height * 0.6),
+ radius: Radius.circular(150),
+ );
+ canvas.drawPath(mouth, paint);
+ }
+  bool shouldRepaint(FaceOutlinePainter oldDelegate) => false;
+}
