@@ -1,0 +1,15 @@
+1 - An application that uses GUI components, Fonts, Colours
+2 - An application that uses Layout Managers and Event Listeners
+3 - Creation of Calculator Application
+4 - An application that draws basic graphical primitives on screen
+5 - An application that uses database for persistent storage
+6 - An application that makes use of RSS feed
+7 - An application that implements multithreading
+8 - An application that uses GPS location information
+9 - An application that takes advantage of rich gesture-based UI handling
+10 - An application that creates an alert upon user action
+11 - An application that creates an alarm clock
+12 - An application that performs REST-based API calls
+13 -
+14 -
+15 -
